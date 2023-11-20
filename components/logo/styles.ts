@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Box = styled.div`
   color: ${({ theme: { colors } }) => colors.white};
-  font-family: var(--font-montserrat);
+  font-family: ${({ theme }) => theme.fonts.montserrat};
   display: flex;
   gap: 0.2rem;
   align-items: center;
@@ -15,6 +15,6 @@ export const Box = styled.div`
   }
 
   > strong:last-of-type {
-    font-family: var(--font-montserrat-light);
+    font-family: ${({ theme }) => theme.fonts.montserratLight};
   }
 `;

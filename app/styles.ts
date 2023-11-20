@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 export const FullPage = styled.div`
   width: 100%;
-  border: 1px solid red;
   height: 100%;
 `;
 
@@ -17,6 +16,26 @@ export const Header = styled.header`
 
 export const Main = styled.main`
   background-color: ${({ theme: { colors } }) => colors.lightWhite};
+  padding: 3rem 0;
 `;
 
-export const Footer = styled.footer``;
+export const Section = styled.section`
+  width: 100%;
+
+  > div.grid {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-items: center;
+    gap: 2rem 0.4rem;
+  }
+`;
+
+export const Footer = styled.footer`
+  width: 100%;
+  background-color: ${({ theme: { colors } }) => colors.lightGray};
+  text-align: center;
+  padding: 1rem;
+`;

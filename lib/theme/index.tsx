@@ -8,8 +8,14 @@ export const theme = {
     cobaltBlue: '#0F52BA',
     white: '#FFFFFF',
     lightWhite: '#F9F9F9',
+    darkGray: '#373737',
+    charcoal: '#2C2C2C',
+    lightGray: '#EEEEEE',
   },
-  fonts: {},
+  fonts: {
+    montserrat: 'var(--font-montserrat)',
+    montserratLight: 'var(--font-montserrat-light)',
+  },
   fontSizes: {},
 };
 
