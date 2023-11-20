@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     text-decoration: none;
     outline: none;
+    font-family: ${({ theme }) => theme.fonts.montserrat};
 }
 
 

@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import StyledComponentsRegistry from '../lib/registry';
 import Theme from '../lib/theme';
+import '@radix-ui/themes/styles.css';
+
+import { Theme as RadixTheme } from '@radix-ui/themes';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -29,7 +32,9 @@ export default function RootLayout({
     <html lang='pt-br'>
       <body className={`${montserrat.variable} ${montserratLight.variable}`}>
         <StyledComponentsRegistry>
-          <Theme>{children}</Theme>
+          <RadixTheme>
+            <Theme>{children}</Theme>
+          </RadixTheme>
         </StyledComponentsRegistry>
       </body>
     </html>

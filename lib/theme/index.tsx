@@ -11,6 +11,7 @@ export const theme = {
     darkGray: '#373737',
     charcoal: '#2C2C2C',
     lightGray: '#EEEEEE',
+    black: '#000000',
   },
   fonts: {
     montserrat: 'var(--font-montserrat)',

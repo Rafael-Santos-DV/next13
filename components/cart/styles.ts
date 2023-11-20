@@ -10,4 +10,5 @@ export const Container = styled.div`
   padding: 0.4rem 0.9rem;
   gap: 0.5rem;
   border-radius: 0.3rem;
+  cursor: pointer;
 `;
