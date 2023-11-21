@@ -8,7 +8,7 @@ export const Item = styled.div`
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.white};
   max-width: 380px;
-  border-radius: 1rem;
+  border-radius: 0.6rem;
   padding: 0.4rem 0.5rem;
   gap: 0.2rem;
   margin: 0.5rem 0;
@@ -45,6 +45,29 @@ export const Item = styled.div`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 768px) {
+    max-width: 220px;
+
+    > button {
+      transform: translate(-15%, 15%);
+      background: none;
+      color: ${({ theme }) => theme.colors.black};
+      font-size: 5rem;
+    }
+
+    & > div.wrapper {
+      flex-direction: column;
+      align-items: normal;
+
+      & img {
+        width: 100%;
+        max-width: 120px;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+  }
 `;
 
 export const Row = styled.div`
@@ -52,12 +75,27 @@ export const Row = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    &.last-row {
+      width: 100%;
+      align-items: normal;
+      justify-content: space-around;
+    }
+  }
 `;
 
 export const Name = styled.p`
   max-width: 8rem;
   font-size: 0.8rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    max-width: 13rem;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const Box = styled.div`
@@ -80,6 +118,16 @@ export const Box = styled.div`
   & .circle-icon {
     font-size: 1.2rem;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    > span {
+      display: none;
+    }
+
+    > div {
+      gap: 0.8rem;
+    }
   }
 `;
 

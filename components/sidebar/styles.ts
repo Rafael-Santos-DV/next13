@@ -29,6 +29,10 @@ export const Container = styled.div`
     color: white;
     font-weight: bold;
   }
+
+  @media (max-width: 768px) {
+    max-width: 18rem;
+  }
 `;
 
 export const Row = styled.div`
@@ -42,6 +46,10 @@ export const Row = styled.div`
   h2 {
     font-size: 2rem;
     color: ${({ theme: { colors } }) => colors.white};
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
   }
 
   > button.btn-close {

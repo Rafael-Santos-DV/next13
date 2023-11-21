@@ -20,7 +20,7 @@ export const Item = () => {
           />
         </components.Row>
         <components.Name>Apple Watch Series 4 GPS</components.Name>
-        <components.Row>
+        <components.Row className='last-row'>
           <components.Box>
             <span>Qtd: </span>
             <div>
@@ -30,7 +30,7 @@ export const Item = () => {
               <CiCirclePlus className='circle-icon plus' />
             </div>
           </components.Box>
-          <components.Price>R$ 2000.00</components.Price>
+          <components.Price>R$ 500,00</components.Price>
         </components.Row>
       </div>
     </components.Item>

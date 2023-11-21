@@ -4,7 +4,11 @@ import styled from 'styled-components';
 
 export const FullPage = styled.div`
   width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  align-content: space-between;
 `;
 
 export const Header = styled.header`
@@ -16,7 +20,9 @@ export const Header = styled.header`
 
 export const Main = styled.main`
   background-color: ${({ theme: { colors } }) => colors.lightWhite};
-  padding: 3rem 0;
+  padding: 3rem 1rem;
+  height: 100%;
+  overflow-y: scroll;
 `;
 
 export const Section = styled.section`
