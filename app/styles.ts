@@ -32,10 +32,12 @@ export const Section = styled.section`
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    place-items: center;
-    gap: 2rem 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    /* place-items: center; */
+    gap: 2rem 0.6rem;
   }
 `;
 

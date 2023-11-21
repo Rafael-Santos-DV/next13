@@ -1,8 +1,13 @@
+'use client';
+
 import React from 'react';
 import * as components from './styles';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HiMiniShoppingBag } from 'react-icons/hi2';
+import { getProducts } from '../../utils/mksCient';
+import { useQuery } from 'react-query';
+import { Skeleton } from '../skeleton';
 
 export interface IProduct {
   id: number;
@@ -15,24 +20,42 @@ export interface IProduct {
   updatedAt: string;
 }
 
-export const Product = (props: IProduct) => {
-  return (
-    <components.Product>
+export const Products = () => {
+  const { data, error, isLoading } = useQuery<{
+    count: number;
+    products: IProduct[];
+  }>({
+    queryKey: 'mks-products',
+    queryFn: async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+      return getProducts({ orderBy: 'ASC', page: 1, rows: 8, sortBy: 'name' });
+    },
+  });
+
+  if (isLoading) return <Skeleton skeletons={8} />;
+
+  return data?.products.map((product) => (
+    <components.Product key={product.id}>
       <Link href='#'>
-        <Image src={props.photo} width={150} height={150} alt={props.name} />
-        <components.Row>
-          <components.Title>{props.name}</components.Title>
+        <Image
+          src={product.photo}
+          width={150}
+          height={150}
+          alt={product.name}
+        />
+        <components.Row className='row-name-price'>
+          <components.Title>{product.name}</components.Title>
           <components.Price>
-            {parseFloat(props.price).toLocaleString('pt-br', {
+            {parseFloat(product.price).toLocaleString('pt-br', {
               currency: 'BRL',
               style: 'currency',
             })}
           </components.Price>
         </components.Row>
         <components.Description>
-          {props.description.length >= 48
-            ? props.description.slice(0, 48) + '...'
-            : props.description}
+          {product.description.length >= 48
+            ? product.description.slice(0, 48) + '...'
+            : product.description}
         </components.Description>
       </Link>
       <components.Button>
@@ -40,5 +63,5 @@ export const Product = (props: IProduct) => {
         <p>Comprar</p>
       </components.Button>
     </components.Product>
-  );
+  ));
 };
