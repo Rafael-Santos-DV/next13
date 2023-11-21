@@ -55,17 +55,19 @@ export const Row = styled.div`
 `;
 
 export const Name = styled.p`
-  font-size: 0.6rem;
+  max-width: 8rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 `;
 
 export const Box = styled.div`
   display: flex;
-  gap: 0.4rem;
+  /* gap: 0.4rem; */
   flex-direction: column;
-  align-items: center;
 
   span {
     font-size: 0.5rem;
+    font-weight: bold;
   }
 
   > div {
