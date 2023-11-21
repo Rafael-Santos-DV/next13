@@ -7,7 +7,8 @@ export interface QueryProduct {
 
 export const getProducts = async (body: QueryProduct) => {
   try {
-    const params = new URLSearchParams(body);
+    /* eslint-disable-next-line */
+    const params = new URLSearchParams(body as any);
 
     return await (
       await fetch(

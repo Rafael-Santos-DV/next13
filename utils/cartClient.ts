@@ -1,11 +1,12 @@
 export const getCart = (key: string) => {
   const items = localStorage.getItem(key);
-  if (items) return JSON.parse(items);
+  if (items)
+    return JSON.parse(items) as Array<{ count: number; id: number }> | null;
   return null;
 };
 
 export const addCart = (key: string, item: { count: number; id: number }) => {
-  const cart = getCart(key) as Array<{ count: number; id: number }> | null;
+  const cart = getCart(key);
 
   if (!cart) {
     return localStorage.setItem(key, JSON.stringify([item]));
