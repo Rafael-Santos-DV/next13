@@ -7,9 +7,10 @@ import { IoIosCloseCircle } from 'react-icons/io';
 import { ScrollArea } from '@radix-ui/themes';
 import { useAnimate } from 'framer-motion';
 import { useSidebarContext } from '../../context/sidebar';
+import { Item } from '../item';
 
-export const Sidebar = ({ children }: { children: React.ReactNode }) => {
-  const { isOpen, setIsOpen } = useSidebarContext();
+export const Sidebar = () => {
+  const { isOpen, setIsOpen, products } = useSidebarContext();
 
   const [scope, animate] = useAnimate();
 
@@ -40,18 +41,21 @@ export const Sidebar = ({ children }: { children: React.ReactNode }) => {
 
         <ScrollArea className='scroll-area'>
           <div className='content'>
-            {children}
-            {children}
-            {children}
-            {children}
-            {children}
+            {products.cart_items.map((product) => (
+              <Item key={product.id} {...product} />
+            ))}
           </div>
         </ScrollArea>
 
         <div className='separator-amount'>
           <Row style={{ width: '100%', justifyContent: 'space-between' }}>
             <p>Total: </p>
-            <p>R$ 500,00</p>
+            <p>
+              {products.total.toLocaleString('pt-br', {
+                currency: 'BRL',
+                style: 'currency',
+              })}
+            </p>
           </Row>
 
           <Checkout>Finalizar Compra</Checkout>

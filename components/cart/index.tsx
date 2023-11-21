@@ -4,16 +4,15 @@ import React from 'react';
 
 import { RiShoppingCartFill } from 'react-icons/ri';
 import { Container } from './styles';
-import { IProduct } from '../product';
 import { useSidebarContext } from '../../context/sidebar';
 
-export const Cart = ({ products }: { products: Array<IProduct> }) => {
-  const { isOpen, setIsOpen } = useSidebarContext();
+export const Cart = () => {
+  const { isOpen, setIsOpen, products } = useSidebarContext();
 
   return (
     <Container onClick={() => setIsOpen(!isOpen)}>
       <RiShoppingCartFill />
-      <span>{products.length}</span>
+      <span>{products.count}</span>
     </Container>
   );
 };

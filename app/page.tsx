@@ -5,7 +5,6 @@ import { Cart } from '../components/cart';
 import { GlobalStyles } from '../components/globalStyles/styles';
 import { Products } from '../components/product';
 import { Sidebar } from '../components/sidebar';
-import { Item } from '../components/item';
 
 export default function Page() {
   return (
@@ -15,9 +14,7 @@ export default function Page() {
         <Logo />
         <Cart />
       </Header>
-      <Sidebar>
-        <Item />
-      </Sidebar>
+      <Sidebar />
       <Main>
         <Section>
           <div className='grid'>
